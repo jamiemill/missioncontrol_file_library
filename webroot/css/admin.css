@@ -1,0 +1,155 @@
+
+/* @group file browser */
+
+#filebrowser.main {
+	width:1000px;
+}
+
+body.file_library_files #content {
+	margin:0;
+}
+
+.filebrowser_item {
+	padding:3px;
+	cursor:  pointer;
+	width: 110px;
+	height:150px;
+	float: left;
+	display: inline;/* fix for IE margin bug */
+	margin:2px;
+	overflow: hidden;
+}
+
+.filebrowser_files_pane {
+	width: 386px;
+	height:465px;
+	overflow:auto;
+	padding: 5px 5px 5px 20px;
+	border-left:1px solid #ccc;
+	margin-bottom: 1em;
+	float: left;
+	display: inline; /* IE fix */
+}
+.filebrowser_folders_pane {
+	width: 200px;
+	height:350px;
+	overflow:auto;
+	padding: 0px;
+	margin-bottom: 1em;
+	float: left;
+	display: inline; /* IE fix */
+}
+/*.filebrowser td {
+	background:none;
+	color: white;
+}*/
+
+#filebrowser .sidebar {
+	float:right;
+}
+
+ul.folder_list li {
+	padding: 0;
+	list-style-image: url(../../img/admin/tango/16x16/places/folder.png);
+	list-style-position: inside;
+	margin: 0;
+}
+
+ul.folder_list {
+	margin: 0;
+	padding: 0;
+}
+ul.folder_list ul {
+	margin: 0 0 0 1em;
+	padding: 0;
+}
+
+ul.folder_list a {
+	padding: 3px;
+}
+
+ul.folder_list li.selected {
+	list-style-image: url(../img/folder-open.png);
+}
+
+ul.folder_list li.selected a {
+	background-color: #ccc;
+}
+ul.folder_list li.selected ul li a {
+	background: none;
+}
+ul.folder_list li.smart, ul.folder_list li.smart.selected {
+	list-style-image: url(../img/folder-saved-search.png);
+} 
+
+.filebrowser h3 {
+	margin: 0;
+}
+
+.filebrowser_item img {
+
+}
+
+.filebrowser_item:hover {
+	background-color: #ddd;
+}
+
+.filebrowser_item_selected, .filebrowser_item_selected:hover {
+	background-color: #bbb;
+}
+
+.filebrowser_item_text {
+	/*width: 250px;*/
+	text-align:center;
+	font-size: 90%;
+}
+.filebrowser_item_thumb {
+	/*float: right;*/
+	width: 110px;
+	height: 110px;
+	text-align: center;
+	display: table-cell;
+	vertical-align:middle;
+}
+
+.filebrowser_scroll {
+	height:450px;
+	overflow:  auto;
+}
+
+.filebrowser_upload {
+	background-color: #ccc;
+	padding: 10px;
+}
+.filebrowser_upload input {
+	width: 300px;
+}
+
+.filebrowser_info_area {
+	/*width: 300px;*/
+	min-height: 478px;
+	padding: 5px;
+	/*margin-left:20px;*/
+}
+.filebrowser_image_insert_options {
+	margin-top: 1em;
+}
+
+.filebrowser_page_list {
+	width: 250px;
+}
+
+.filebrowser_page_list li {
+	padding: 2px;
+}
+
+.filebrowser_page_list a {
+}
+
+li.filebrowser_page_selected {
+	background-color: #ececec;
+}
+.filebrowser td {
+	/*background: none;*/
+}
+/* @end */
