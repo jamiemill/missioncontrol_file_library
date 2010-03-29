@@ -358,12 +358,12 @@ class FileLibraryFilesController extends FileLibraryAppController {
 		$maxSrcPixels = 10000000; // images over around 3megapixels seem to exhaust a memory limit of ??MB
 	
 		if(!file_exists($sourceFilename) || !is_file($sourceFilename)) {
-			$sourceFilename = APP.'missioncontrol_plugins'.DS.'file_library'.DS.'webroot'.DS.'img'.DS.'admin'.DS.'no-image.png';
+			$sourceFilename = APP.'plugins'.DS.'file_library'.DS.'webroot'.DS.'img'.DS.'admin'.DS.'no-image.png';
 		}
 	
 		$ext = strtolower(substr(strrchr($sourceFilename, '.'), 1)); // get the file extension
 		if(!in_array($ext,array('jpg','jpeg','png','gif'))) {
-			$sourceFilename = APP.'missioncontrol_plugins'.DS.'file_library'.DS.'webroot'.DS.'img'.DS.'admin'.DS.'image-unknown-format.png';
+			$sourceFilename = APP.'plugins'.DS.'file_library'.DS.'webroot'.DS.'img'.DS.'admin'.DS.'image-unknown-format.png';
 		}
 	
 		// this image size check is probably slowing the script down. better to check for ready-made thumbnail first
@@ -372,7 +372,7 @@ class FileLibraryFilesController extends FileLibraryAppController {
 			die("Could not check size of source image with getimagesize()");
 		}
 		if($imgsize[0] * $imgsize[1] > $maxSrcPixels) {
-			$sourceFilename = APP.'missioncontrol_plugins'.DS.'file_library'.DS.'webroot'.DS.'img'.DS.'admin'.DS.'image-too-large.png';
+			$sourceFilename = APP.'plugins'.DS.'file_library'.DS.'webroot'.DS.'img'.DS.'admin'.DS.'image-too-large.png';
 		}
 	
 	
