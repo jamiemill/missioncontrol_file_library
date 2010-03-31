@@ -6,10 +6,10 @@ class FileLibraryFile extends FileLibraryAppModel {
 
 	var $validate = array(
 		'file_upload' => array(
-            'rule' => array('checkForFile','file_upload'),
-            'message' => 'ERROR: No file selected.',
+			'rule' => array('checkForFile','file_upload'),
+			'message' => 'ERROR: No file selected.',
 			'on'=>'create'
-     	)
+	 	)
 	);
 			
 	var $belongsTo = array('FileLibrary.FileLibraryFolder');
@@ -19,7 +19,7 @@ class FileLibraryFile extends FileLibraryAppModel {
 	var $imgExts = array('jpg','jpeg','png','gif');
 
 	function checkExtIfUploaded($field_data,$field_name = 'file_upload',$exts = array('jpg','jpeg')) {
-        $valid = false;
+		$valid = false;
 
 		if(!$field_data[$field_name]['size']) {
 			// no file was uploaded
@@ -31,17 +31,17 @@ class FileLibraryFile extends FileLibraryAppModel {
 				$valid = true;
 			}
 		}
-        return $valid;
+		return $valid;
    }
 
 	function checkForFile($field_data,$field_name = 'file_upload') {
-      $valid = false;
+	  $valid = false;
 
 		if(isset($field_data[$field_name]['size']) && $field_data[$field_name]['size']) {
 			// file was uploaded
 			$valid = true;
 		}
-      return $valid;
+	  return $valid;
 	}
 
 
@@ -125,21 +125,21 @@ class FileLibraryFile extends FileLibraryAppModel {
 	
 	function rmdirRecursive($path,$followLinks=false) {
 
-	    $dir = opendir($path) ;
-	    while ( $entry = readdir($dir) ) {
+		$dir = opendir($path) ;
+		while ( $entry = readdir($dir) ) {
 
-	        if ( is_file( "$path/$entry" ) || ((!$followLinks) && is_link("$path/$entry")) ) {
-	            //echo ( "unlink $path/$entry;\n" );
-	            // Uncomment when happy!
-	            @unlink( "$path/$entry" );
-	        } elseif ( is_dir( "$path/$entry" ) && $entry!='.' && $entry!='..' ) {
-	            $this->rmdirRecursive( "$path/$entry" ) ;
-	        }
-	    }
-	    closedir($dir) ;
-	    //echo "rmdir $path;\n";
-	    // Uncomment when happy!
-	    return @rmdir($path);
+			if ( is_file( "$path/$entry" ) || ((!$followLinks) && is_link("$path/$entry")) ) {
+				//echo ( "unlink $path/$entry;\n" );
+				// Uncomment when happy!
+				@unlink( "$path/$entry" );
+			} elseif ( is_dir( "$path/$entry" ) && $entry!='.' && $entry!='..' ) {
+				$this->rmdirRecursive( "$path/$entry" ) ;
+			}
+		}
+		closedir($dir) ;
+		//echo "rmdir $path;\n";
+		// Uncomment when happy!
+		return @rmdir($path);
 	}
 
 }

@@ -225,27 +225,27 @@ if($inPopup) {
 	echo $html->scriptBlock(<<<END
 		
 		var FileBrowserDialogue = {
-			    init : function () {
+				init : function () {
 					applyFileLibraryPlugin();
 					// remove the CSS added by tiny_mce_popup
 					var allLinks = document.getElementsByTagName("link");
 					allLinks[allLinks.length-1].parentNode.removeChild(allLinks[allLinks.length-1]);
-			    },
-			    sendURLBack : function (URL) {
-			        var win = tinyMCEPopup.getWindowArg("window");
+				},
+				sendURLBack : function (URL) {
+					var win = tinyMCEPopup.getWindowArg("window");
 
-			        // insert information now
-			        win.document.getElementById(tinyMCEPopup.getWindowArg("input")).value = URL;
+					// insert information now
+					win.document.getElementById(tinyMCEPopup.getWindowArg("input")).value = URL;
 
-			        // for image browsers: update image dimensions
+					// for image browsers: update image dimensions
 					if(tinyMCEPopup.getWindowArg("type") == 'image') {
 						if (win.ImageDialog.getImageData) win.ImageDialog.getImageData();
-				        if (win.ImageDialog.showPreviewImage) win.ImageDialog.showPreviewImage(URL);
+						if (win.ImageDialog.showPreviewImage) win.ImageDialog.showPreviewImage(URL);
 					}
 
-			        // close popup window
-			        tinyMCEPopup.close();
-			    }
+					// close popup window
+					tinyMCEPopup.close();
+				}
 			}
 
 			tinyMCEPopup.onInit.add(FileBrowserDialogue.init, FileBrowserDialogue);		

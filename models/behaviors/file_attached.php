@@ -15,7 +15,7 @@ var $actsAs = array(
 	'FileLibraryFile'=>array(
 		'form_field_id' => 'database_field_for_resulting_id'
 		'image_upload'=>'image_file_id', // example
-		'CV_upload'=>'cv_file_id',       // example
+		'CV_upload'=>'cv_file_id',	   // example
 		)
 );
 

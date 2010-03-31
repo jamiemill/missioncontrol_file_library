@@ -327,13 +327,13 @@ class ImageServer {
 		
 		$ext = substr(strrchr($this->src, '.'), 1); // get the file extension
 		switch ($ext) { 
-			case 'jpg':     // jpg
+			case 'jpg':	 // jpg
 				$src = imagecreatefromjpeg($this->src) or notfound();
 				break;
-			case 'png':     // png
+			case 'png':	 // png
 				$src = imagecreatefrompng($this->src) or notfound();
 				break;
-			case 'gif':     // gif
+			case 'gif':	 // gif
 				$src = imagecreatefromgif($this->src) or notfound();
 				break;
 			default:
@@ -358,9 +358,9 @@ class ImageServer {
 			/* Sharpening adddition by Mike Harding */
 			// sharpen the image (only available in PHP5.1)
 			if (function_exists("imageconvolution")) {
-				$matrix = array(    array( -1, -1, -1 ),
-			                    array( -1, 32, -1 ),
-			                    array( -1, -1, -1 ) );
+				$matrix = array(	array( -1, -1, -1 ),
+								array( -1, 32, -1 ),
+								array( -1, -1, -1 ) );
 				$divisor = 24;
 				$offset = 0;
 

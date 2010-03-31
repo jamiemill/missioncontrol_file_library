@@ -314,14 +314,14 @@ class FileLibraryFilesController extends FileLibraryAppController {
 		Configure::write('debug', 0);
 		
 		$this->layout = null; 
-	    $this->autoRender = false;
+		$this->autoRender = false;
 
-        if(empty($this->params['named']['src'])){ 
-            die("No source image"); 
-        } 
+		if(empty($this->params['named']['src'])){ 
+			die("No source image"); 
+		} 
 
 		$this->params['named']['src'] = rawurldecode($this->params['named']['src']); // internet explorer was submitting the "|" characters encoded. note that the "|" is intact with other browsers / email clients
-          
+		  
 		$src = str_replace('|',DS,$this->params['named']['src']); 
 	
 		if($this->params['named']['size'] == 'original') {
@@ -337,24 +337,24 @@ class FileLibraryFilesController extends FileLibraryAppController {
 	
 	
 		// width and height disabled in favour of a more secure size matrix
-	          // width 
-	          // $width = (!isset($this->params['named']['w'])) ? null : $this->params['named']['w']; 
-	          // height 
-	          // $height = (!isset($this->params['named']['h'])) ? null : $this->params['named']['h']; 		
+			  // width 
+			  // $width = (!isset($this->params['named']['w'])) ? null : $this->params['named']['w']; 
+			  // height 
+			  // $height = (!isset($this->params['named']['h'])) ? null : $this->params['named']['h']; 		
 
 		$sizecode = isset($this->params['named']['size']) ? $this->params['named']['size'] : null;
 	
 		// width 
-	          $width = (array_key_exists($sizecode,$this->sizes)) ? $this->sizes[$sizecode][0] : 100;
-	          // height 
-	          $height = (array_key_exists($sizecode,$this->sizes)) ? $this->sizes[$sizecode][1] : 100;
+			  $width = (array_key_exists($sizecode,$this->sizes)) ? $this->sizes[$sizecode][0] : 100;
+			  // height 
+			  $height = (array_key_exists($sizecode,$this->sizes)) ? $this->sizes[$sizecode][1] : 100;
 
 		$scaleMode = (array_key_exists($sizecode,$this->sizes)) ? $this->sizes[$sizecode][2] : 1;
 
 		$anchor = (array_key_exists($sizecode,$this->sizes)) ? $this->sizes[$sizecode][3] : 'C';
 
-           
-	          $sourceFilename = WWW_ROOT.$src;
+		   
+			  $sourceFilename = WWW_ROOT.$src;
 		$maxSrcPixels = 10000000; // images over around 3megapixels seem to exhaust a memory limit of ??MB
 	
 		if(!file_exists($sourceFilename) || !is_file($sourceFilename)) {
@@ -376,11 +376,11 @@ class FileLibraryFilesController extends FileLibraryAppController {
 		}
 	
 	
-	          if(is_readable($sourceFilename)){ 
-	          	//vendor("imageserver/imageserver.class");
+			  if(is_readable($sourceFilename)){ 
+			  	//vendor("imageserver/imageserver.class");
 			$result = App::import('Vendor', 'FileLibrary.ImageServer', array('file' => 'imageserver'.DS.'imageserver.1.3.php'));
 
-	              $i = new ImageServer;
+				  $i = new ImageServer;
 			$i->src = $sourceFilename;
 			$i->cache_path = CACHE.'thumbs'.DS; 
 			//$i->cache_required = false;
@@ -409,12 +409,12 @@ class FileLibraryFilesController extends FileLibraryAppController {
 			if(!$i->output()) {
 				echo $i->error;
 			}
-           
-           
-	          } else { // Can't read source 
-	              die("Couldn't read source image ".$sourceFilename); 
-	          } 
-	      }
+		   
+		   
+			  } else { // Can't read source 
+				  die("Couldn't read source image ".$sourceFilename); 
+			  } 
+		  }
 	
 }
 
