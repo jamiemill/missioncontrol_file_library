@@ -227,9 +227,6 @@ if($inPopup) {
 		var FileBrowserDialogue = {
 				init : function () {
 					applyFileLibraryPlugin();
-					// remove the CSS added by tiny_mce_popup
-					var allLinks = document.getElementsByTagName("link");
-					allLinks[allLinks.length-1].parentNode.removeChild(allLinks[allLinks.length-1]);
 				},
 				sendURLBack : function (URL) {
 					var win = tinyMCEPopup.getWindowArg("window");
